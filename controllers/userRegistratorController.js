@@ -3,7 +3,7 @@ const User = require("../model/UserDetails");
 module.exports.register = (req, res) => {
   User.count({ mobile: req.body.mobile }, function (err, count) {
     if (count === 0) {
-      // then now duplicate present .
+      // then now duplicate present in database
       User.count({}, function (err, count) {
         if (err) {
           return res.status(404);
